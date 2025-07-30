@@ -1,5 +1,4 @@
-extern mod ver,git,ver_adm { git = "https://github.com/galaxy-operators/cfm-gxl.git", channel = "${GXL_CHANNEL:main}" }
-extern mod tag { path = "./_gal"}
+extern mod ver,git,tag,ver_adm { git = "https://github.com/galaxy-operators/cfm-gxl.git", channel = "${GXL_CHANNEL:main}" }
 mod  envs {
   env default {
   }
@@ -25,10 +24,5 @@ mod main  : ver_adm {
     gx.tpl( tpl: "./tpl/vars.yml" ,       dst: "./mod/x86-ubt22-host/vars.yml" );
   }
 
-    flow tag_v_alpha {
-    gx.ver ( file : "${GXL_START_ROOT}/version.txt" ,  inc : "null"  );
-    tag.alpha() ;
-    //gx.cmd (  "git push --tags" );
-  }
 }
 
