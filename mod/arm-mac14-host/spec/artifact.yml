@@ -1,0 +1,8 @@
+- name: gflow
+  version: v0.10.2
+  origin_addr:
+    url: "{{ART_REPO}}/v0.10.2/orion-ops-v0.10.2-aarch64-apple-darwin.tar.gz"
+  cache_enable: false  
+  cache_addr :
+    url: "{{ART_CACHE_REPO}}"
+  local: galaxy-flow.tar.gz

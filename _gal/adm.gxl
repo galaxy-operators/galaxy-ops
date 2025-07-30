@@ -1,0 +1,37 @@
+extern mod ver,git,ver_adm { git = "https://github.com/galaxy-operators/cfm-gxl.git", channel = "${GXL_CHANNEL:main}" }
+mod  envs {
+  env default {
+  }
+}
+mod main  : ver_adm {
+
+  flow  ver.use | @update_spec | _use_tpl_mac  | _use_tpl_utn {
+    ART_REPO = "{{ART_REPO}}";
+    ART_CACHE_REPO = "{{ART_CACHE_REPO}}";
+  }
+
+  flow  _use_tpl_mac {
+    RUN_TARGET= "aarch64-apple-darwin";
+    gx.tpl( tpl: "./tpl/artifact.yml" ,  dst: "./mod/arm-mac14-host/spec/artifact.yml" );
+    gx.tpl( tpl: "./tpl/operators.gxl" , dst: "./mod/arm-mac14-host/workflows/operators.gxl" );
+    gx.tpl( tpl: "./tpl/vars.yml" ,      dst: "./mod/arm-mac14-host/vars.yml" );
+  }
+  flow  _use_tpl_utn {
+    RUN_TARGET= "x86_64-unknown-linux-gnu";
+    gx.tpl( tpl: "./tpl/artifact.yml" ,   dst: "./mod/x86-ubt22-host/spec/artifact.yml" );
+    gx.tpl( tpl: "./tpl/operators.gxl" ,  dst: "./mod/x86-ubt22-host/workflows/operators.gxl" );
+    gx.tpl( tpl: "./tpl/vars.yml" ,       dst: "./mod/x86-ubt22-host/vars.yml" );
+  }
+
+    flow tag_v_alpha {
+    gx.ver ( file : "${GXL_START_ROOT}/version.txt" ,  inc : "null"  );
+    ```cmd
+      local alpha_num=1
+      while git rev-parse "v${VERSION}-alpha.$alpha_num" >/dev/null 2>&1; do
+          alpha_num=$((alpha_num+1))
+      done
+    ```
+    gx.cmd (  "git tag v${VERSION}-alpha.${alpha_num}" );
+    gx.cmd (  "git push --tags" );
+  }
+}
