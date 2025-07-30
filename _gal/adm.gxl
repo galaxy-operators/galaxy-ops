@@ -1,8 +1,10 @@
 extern mod ver,git,ver_adm { git = "https://github.com/galaxy-operators/cfm-gxl.git", channel = "${GXL_CHANNEL:main}" }
+extern mod tag { path = "./_gal"}
 mod  envs {
   env default {
   }
 }
+
 mod main  : ver_adm {
 
   flow  ver.use | @update_spec | _use_tpl_mac  | _use_tpl_utn {
@@ -25,13 +27,8 @@ mod main  : ver_adm {
 
     flow tag_v_alpha {
     gx.ver ( file : "${GXL_START_ROOT}/version.txt" ,  inc : "null"  );
-    ```cmd
-      local alpha_num=1
-      while git rev-parse "v${VERSION}-alpha.$alpha_num" >/dev/null 2>&1; do
-          alpha_num=$((alpha_num+1))
-      done
-    ```
-    gx.cmd (  "git tag v${VERSION}-alpha.${alpha_num}" );
-    gx.cmd (  "git push --tags" );
+    tag.alpha() ;
+    //gx.cmd (  "git push --tags" );
   }
 }
+
