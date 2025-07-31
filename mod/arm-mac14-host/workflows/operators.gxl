@@ -16,10 +16,14 @@ mod operators : empty_operators {
     flow download {
           mod_local = "./local";
           art_local = "${SETTING.ART_PATH}";
+          untar_local = "${SETTING.ART_PATH}/unpack";
+          gx.cmd ( "mkdir -p ${ART_LOCAL}");
           gx.echo ("mod-local: ${mod_local}");
           gx.read_file( file : "${mod_local}/artifact.yml" ,  name : "ART" ) ;
-          ops_utls.download_tar(artifacts: ${ART},art_local:${ART_LOCAL});
-          gx.cmd ( "mv ${ART_LOCAL}/artifacts/* ${ART_LOCAL}/");
-          gx.cmd ( "rm -rf ${ART_LOCAL}/artifacts ");
+          gx.echo ("art_local:  ${ART_LOCAL}");
+          ops_utls.download_tar(artifacts: ${ART},art_local:${UNTAR_LOCAL});
+          gx.echo ("art_local:  ${ART_LOCAL}");
+          gx.cmd ( "mv ${UNTAR_LOCAL}/artifacts/* ${ART_LOCAL}/");
+          gx.cmd ( "rm -rf ${UNTAR_LOCAL}");
     }
 }
