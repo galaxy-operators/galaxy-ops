@@ -1,7 +1,7 @@
 - name: gflow
-  version: v0.10.2
+  version: v0.10.4
   origin_addr:
-    url: "{{ART_REPO}}/v0.10.2/orion-ops-v0.10.2-aarch64-apple-darwin.tar.gz"
+    url: "{{ART_REPO}}/v0.10.4/orion-ops-v0.10.4-aarch64-apple-darwin.tar.gz"
   cache_enable: false  
   cache_addr :
     url: "{{ART_CACHE_REPO}}"
