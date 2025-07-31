@@ -6,7 +6,7 @@ mod  envs {
 
 mod main  : ver_adm {
 
-  flow  ver.use | @update_spec | _use_tpl_mac  | _use_tpl_utn {
+  flow  ver.use | @sync_spec| _use_tpl_mac  | _use_tpl_utn {
     ART_REPO = "{{ART_REPO}}";
     ART_CACHE_REPO = "{{ART_CACHE_REPO}}";
   }

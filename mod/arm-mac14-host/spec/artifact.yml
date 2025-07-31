@@ -5,4 +5,4 @@
   cache_enable: false  
   cache_addr :
     url: "{{ART_CACHE_REPO}}"
-  local: galaxy-flow.tar.gz
+  local: orion-ops.tar.gz
