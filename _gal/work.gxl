@@ -14,4 +14,9 @@ mod envs : {
     }
 
 }
-mod main :  mod_ops {}
+mod main :  mod_ops {
+    flow conf {
+         gx.cmd("ds-mod update")   ;
+         gx.cmd("ds-mod localize")   ;
+    }
+}
