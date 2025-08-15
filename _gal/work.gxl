@@ -1,4 +1,4 @@
-extern mod mod_ops { git =  "https://github.com/galaxy-operators/ops-gxl.git", channel = "${GXL_CHANNEL:main}" }
+extern mod mod_ops { git =  "https://github.com/galaxy-operators/ops-gxl.git", channel = "${GXL_CHANNEL:beta}" }
 mod envs : {
     env  _common {
         module_env = "default";
@@ -11,4 +11,9 @@ mod envs : {
     }
 
 }
-mod main :  mod_ops {}
+mod main :  mod_ops {
+    flow conf {
+         gx.cmd("ds-mod update")   ;
+         gx.cmd("ds-mod localize")   ;
+    }
+}
