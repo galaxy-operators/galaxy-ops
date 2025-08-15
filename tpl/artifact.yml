@@ -1,7 +1,7 @@
 - name: gflow
   version: v{{VERSION}}
   origin_addr:
-    url: "{{ART_REPO}}/v{{VERSION}}/orion-ops-v{{VERSION}}-{{RUN_TARGET}}.tar.gz"
+    url: "{{ART_REPO}}/v{{VERSION}}/galaxy-ops-v{{VERSION}}-{{RUN_TARGET}}.tar.gz"
   cache_enable: false  
   cache_addr :
     url: "{{ART_CACHE_REPO}}"
