@@ -1,6 +1,6 @@
 vars:
   - name: ART_REPO 
-    value: "https://github.com/galaxy-sec/galaxy-flow/releases/download"
+    value: "https://github.com/galaxy-sec/galaxy-ops/releases/download"
   - name: ART_PATH 
     value: "${GXL_PRJ_ROOT}/artifacts"
   - name: ART_CACHE_REPO 

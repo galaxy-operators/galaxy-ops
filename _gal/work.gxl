@@ -9,9 +9,6 @@ mod envs : {
     env x86_ubt : _common {
         model = "x86-ubt22-host";
     }
-    env x86_ubt_k8s : _common {
-        model = "x86-ubt22-k8s";
-    }
 
 }
 mod main :  mod_ops {}
