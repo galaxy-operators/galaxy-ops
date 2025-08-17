@@ -5,4 +5,4 @@
   cache_enable: false  
   cache_addr :
     url: "{{ART_CACHE_REPO}}"
-  local: orion-ops.tar.gz
+  local: galaxy-ops-v0.11.0.tar.gz
