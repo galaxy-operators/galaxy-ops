@@ -1,4 +1,4 @@
-- name: gflow
+- name: gops
   version: v{{VERSION}}
   origin_addr:
     url: "{{ART_REPO}}/v{{VERSION}}/galaxy-ops-v{{VERSION}}-{{RUN_TARGET}}.tar.gz"
