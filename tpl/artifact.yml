@@ -1,8 +1,8 @@
 - name: gops
-  version: v{{VERSION}}
+  version: ${USED_VER}
   origin_addr:
-    url: "{{ART_REPO}}/v{{VERSION}}/galaxy-ops-v{{VERSION}}-{{RUN_TARGET}}.tar.gz"
+    url: "{{ART_REPO}}/${USED_VER}/galaxy-ops-${USED_VER}-{{RUN_TARGET}}.tar.gz"
   cache_enable: false  
   cache_addr :
     url: "{{ART_CACHE_REPO}}"
-  local: galaxy-ops-v{{VERSION}}.tar.gz
+  local: galaxy-ops-${USED_VER}.tar.gz

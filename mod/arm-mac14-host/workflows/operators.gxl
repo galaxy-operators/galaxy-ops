@@ -9,18 +9,20 @@ mod operators : empty_operators {
     flow install {
         art_local = "${SETTING.ART_PATH}";
       ```cmd
-         cp ${ART_LOCAL}/ds-* ${HOME}/bin/ ; chmod +x ${HOME}/bin/ds-*;
+         cp ${ART_LOCAL}/g* ${HOME}/bin/ ; chmod +x ${HOME}/bin/g*;
       ```
     }
     #[task(name="ds-ops@download")]
     flow download {
           mod_local = "./local";
           art_local = "${SETTING.ART_PATH}";
+          used_ver = "${SETTING.USED_VER}";
           untar_local = "${SETTING.ART_PATH}/unpack";
           gx.cmd ( "mkdir -p ${ART_LOCAL}");
           gx.echo ("mod-local: ${mod_local}");
           gx.read_file( file : "${mod_local}/artifact.yml" ,  name : "ART" ) ;
           gx.echo ("art_local:  ${ART_LOCAL}");
+          gx.echo ("use_ver:  ${SETTING.USED_VER}");
           ops_utls.download_tar(artifacts: ${ART},art_local:${UNTAR_LOCAL});
           gx.echo ("art_local:  ${ART_LOCAL}");
           gx.cmd ( "mv ${UNTAR_LOCAL}/artifacts/* ${ART_LOCAL}/");
